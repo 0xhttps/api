@@ -127,7 +127,7 @@ The server will be running at `http://localhost:4442` by default, but you can cu
 - **summary** (string): Information about the transaction.
 
 ### 7. Get Ethereum Account Balance
-- **Endpoint:** `/api/evm/tranasctionInfo/:hash`
+- **Endpoint:** `/api/ethereum/accountbalance/:addr`
 - **Method:** `GET`
 - **Description:** Retrieve the balance of an Ethereum account.
 - **Parameters:**
@@ -136,7 +136,7 @@ The server will be running at `http://localhost:4442` by default, but you can cu
 - **Response:**
     ```json
     {
-      "tranasctionInfo": { ... }
+      "accountBalance": { ... }
     }
     ```
 - **status** (num): The status of the API call. This can be either 200 (success), or 418 (error) currently.
