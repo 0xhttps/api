@@ -106,7 +106,7 @@ The server will be running at `http://localhost:4442` by default, but you can cu
     }
     ```
 
-    ### 6. Get EVM Transaction Info
+### 6. Get EVM Transaction Info
 
 - **Endpoint:** `/api/evm/tranasctionInfo/:hash`
 - **Method:** `GET`
