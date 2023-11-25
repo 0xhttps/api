@@ -1,9 +1,10 @@
 import Express from 'express';
 import cors from 'cors';
-import getMinBond from './util/polkadot-threshold.js';
-import getStakeInfo from './util/polkadot-account-info.js';
-import getValidatorInfo from './util/polkadot-validator-info.js';
-import isValidSubstrateAddress from './util/check-address.js';
+import getMinBond from './util/polkadot/polkadot-threshold.js';
+import getStakeInfo from './util/polkadot/polkadot-account-info.js';
+import getValidatorInfo from './util/polkadot/polkadot-validator-info.js';
+import isValidSubstrateAddress from './util/polkadot/check-address.js';
+import getTransactionInfo from './util/ethereum/find-transaction.js';
 
 const app = Express()
 const PORT = process.env.PORT || 4442;
@@ -78,6 +79,16 @@ app.get('/api/polkadot/allstakinginfo/:addr', async (req, res) => {
             let validatorInfo = await getValidatorInfo(addr);
             res.send({ stakeInfo, validatorInfo })
         }
+    } catch(err) {
+        res.send({err})
+    }
+})
+
+app.get('/api/evm/tranasctionInfo/:hash', async (req, res) => {
+    const { hash } = req.params;
+    try {
+        let tranasctionInfo = await getTransactionInfo(hash)
+        res.send({ tranasctionInfo })
     } catch(err) {
         res.send({err})
     }
