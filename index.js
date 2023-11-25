@@ -88,7 +88,7 @@ app.get('/api/evm/tranasctionInfo/:hash', async (req, res) => {
     const { hash } = req.params;
     try {
         let tranasctionInfo = await getTransactionInfo(hash)
-        res.send({ tranasctionInfo })
+        res.status(tranasctionInfo["status"]).send({ tranasctionInfo })
     } catch(err) {
         res.send({err})
     }
