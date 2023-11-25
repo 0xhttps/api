@@ -18,7 +18,7 @@ app.listen(
 
 app.get('/', (req, res) => {
     res.json({
-      message: '🦄🌈🦄',
+      message: '✅',
     });
   });
 
@@ -32,7 +32,6 @@ app.get('/api/polkadot/minbond', async (req, res) => {
         })
         console.log(`Returned GET req minbond`);
     }
-    
 });
 
 //get polkadot account balances*

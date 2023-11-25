@@ -1,7 +1,6 @@
 import { decodeAddress, encodeAddress } from '@polkadot/keyring';
 import { hexToU8a, isHex } from '@polkadot/util';
 
-// Check address.
 export default async function isValidSubstrateAddress(addr) {
     let isValid = true
     try {

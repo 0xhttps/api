@@ -33,7 +33,7 @@ The server will be running at `http://localhost:4442` by default, but you can cu
 - **Response:**
     ```json
     {
-      "message": "🦄🌈🦄"
+      "message": "✅"
     }
     ```
 

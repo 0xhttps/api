@@ -16,7 +16,6 @@ export default async function getValidatorInfo(addr) {
     let info = 0
     var validatorInfo = {};
 
-
     try {
         const nominators = JSON.parse(await api.query.staking.nominators(addr));
         for (let i = 0; i < nominators.targets.length; i++) {
