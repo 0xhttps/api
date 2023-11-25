@@ -5,6 +5,7 @@ import getStakeInfo from './util/polkadot/polkadot-account-info.js';
 import getValidatorInfo from './util/polkadot/polkadot-validator-info.js';
 import isValidSubstrateAddress from './util/polkadot/check-address.js';
 import getTransactionInfo from './util/ethereum/find-transaction.js';
+import getAccountBalance from './util/ethereum/get-ethereum-balance.js'
 
 const app = Express()
 const PORT = process.env.PORT || 4442;
@@ -57,7 +58,7 @@ app.get('/api/polkadot/validator/:addr', async (req, res) => {
     try {
         let isValid = await isValidSubstrateAddress(addr)
         if(!isValid) {
-            res.status(418).send({message: 'invalid valid Polkadot address'})
+            res.status(418).send({message: 'invalid Polkadot address'})
         } else {
             let validatorInfo = await getValidatorInfo(addr);
             res.send({ validatorInfo })
@@ -73,7 +74,7 @@ app.get('/api/polkadot/allstakinginfo/:addr', async (req, res) => {
     try {
         let isValid = await isValidSubstrateAddress(addr)
         if(!isValid) {
-            res.status(418).send({message: 'invalid valid Polkadot address'})
+            res.status(418).send({message: 'invalid Polkadot address'})
         } else {
             let stakeInfo = await getStakeInfo(addr);
             let validatorInfo = await getValidatorInfo(addr);
@@ -89,6 +90,20 @@ app.get('/api/evm/tranasctionInfo/:hash', async (req, res) => {
     try {
         let tranasctionInfo = await getTransactionInfo(hash)
         res.status(tranasctionInfo["status"]).send({ tranasctionInfo })
+    } catch(err) {
+        res.send({err})
+    }
+})
+
+app.get('/api/ethereum/accountbalance/:addr', async (req, res) => {
+    const { addr } = req.params;
+    try {
+        if(addr.startsWith("0x") && addr.length === 42) {
+            let accountBalance = await getAccountBalance(addr)
+            res.status(accountBalance["status"]).send({ accountBalance })
+        } else {
+            res.status(418).send({message: 'invalid ethereum address'})
+        }
     } catch(err) {
         res.send({err})
     }
