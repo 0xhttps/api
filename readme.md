@@ -1,4 +1,5 @@
-Welcome! This Express.js-based API provides endpoints to retrieve various information related to Polkadot accounts and staking.
+Welcome! This Express.js-based API provides endpoints to retrieve various information related to Polkadot accounts and staking. 
+EVM / UTXO based transaction info TBA.
 
 [![API](https://img.shields.io/badge/Visit%20the%20API-blue)](https://api-test-dot.vercel.app/)
 
@@ -104,3 +105,23 @@ The server will be running at `http://localhost:4442` by default, but you can cu
       "validatorInfo": { ... }
     }
     ```
+
+    ### 6. Get EVM Transaction Info
+
+- **Endpoint:** `/api/evm/tranasctionInfo/:hash`
+- **Method:** `GET`
+- **Description:** Retrieve the network that the transaction took place on, along with a short summary.
+- **Parameters:**
+  - `hash` (string): EVM transaction hash
+- **Networks:** [ethereum, bsc, matic(polygon), arbitrum, avalanche, cronos, optimism, base, zkevm, xinfin]
+- **Response:**
+    ```json
+    {
+      "tranasctionInfo": {
+        "status: ...,
+         ... }
+    }
+    ```
+- **status** (num): The status of the API call. This can be either 200 (success), or 418 (error) currently.
+- **network** (string): The network that the tranasction took place on.
+- **summary** (string): Information about the transaction.
