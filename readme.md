@@ -1,6 +1,4 @@
-# Polkadot API
-
-Welcome to the Polkadot API repository! This Express.js-based API provides endpoints to retrieve various information related to Polkadot accounts and staking.
+Welcome! This Express.js-based API provides endpoints to retrieve various information related to Polkadot accounts and staking.
 
 ## Getting Started
 
