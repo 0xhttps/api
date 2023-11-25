@@ -1,6 +1,6 @@
 Welcome! This Express.js-based API provides endpoints to retrieve various information related to Polkadot accounts and staking.
 
-[![API](https://img.shields.io/badge/Visit%20the%20API-blue)](https://api-orcin-zeta.vercel.app/)
+[![API](https://img.shields.io/badge/Visit%20the%20API-blue)](https://api-test-dot.vercel.app/)
 
 ## Getting Started
 
