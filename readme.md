@@ -118,7 +118,7 @@ The server will be running at `http://localhost:4442` by default, but you can cu
     ```json
     {
       "tranasctionInfo": {
-        "status: ...,
+        "status": ...,
          ... }
     }
     ```
